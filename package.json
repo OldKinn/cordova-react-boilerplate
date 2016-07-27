@@ -1,7 +1,7 @@
 {
   "name": "cordova-react-boilerplate",
   "version": "1.0.0",
-  "description": "搭建React开发环境开发Cordova",
+  "description": "搭建cordova应用开发的环境，使用React、React-router、Redux",
   "scripts": {
     "clean": "rimraf ./builder/dist",
     "build:webpack": "cross-env NODE_ENV=production webpack --config ./builder/webpack.config.prod.js",
