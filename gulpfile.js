@@ -1,36 +1,45 @@
 var gulp = require('gulp');
 var async = require('async');
+var chalk = require('chalk');
+var green = chalk.bold.green;
 
 gulp.task('assets', function (callback) {
     var assets = [
         {
-            module: 'bootstrap',
-            desc: '视图层使用的UI框架',
+            component: 'bootstrap',
             src: [
                 './bower_components/bootstrap/dist/css/bootstrap.min.css',
                 './bower_components/bootstrap/dist/fonts/**'
             ],
             base: './bower_components/bootstrap/dist',
-            dest: './bundler/public/assets/bootstrap'
+            destination: './bundler/public/assets/bootstrap'
         },
         {
-            module: 'requireJs',
-            desc: 'RequireJS',
+            component: 'requirejs',
             src: './bower_components/requirejs/require.js',
-            dest: './bundler/public/assets/libs'
+            destination: './bundler/public/assets/libs'
+        },
+        {
+            component: 'animate.css',
+            src: './bower_components/animate.css/animate.min.css',
+            destination: './bundler/public/assets/css'
         }
     ];
     async.each(assets, function (item, callback) {
-        console.time('extract ' + item.module);
+        console.time('extract ' + item.component);
         var options = item.base ? {base: item.base} : {};
         var stream = gulp.src(item.src, options);
         stream.on('end', function () {
-            console.timeEnd('extract ' + item.module);
-            console.log('抽取 %s 已完成!', item.module);
+            console.timeEnd('extract ' + item.component);
+            console.log('extract %s success!', green(item.component));
             callback();
         });
-        stream.pipe(gulp.dest(item.dest));
+        stream.pipe(gulp.dest(item.destination));
     }, function (error) {
         callback(error);
     });
+});
+
+gulp.task('build', function () {
+
 });
