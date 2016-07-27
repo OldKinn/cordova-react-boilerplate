@@ -16,14 +16,19 @@ gulp.task('assets', function (callback) {
             destination: './builder/public/assets/bootstrap'
         },
         {
+            component: 'animate.css',
+            src: './bower_components/animate.css/animate.min.css',
+            destination: './builder/public/assets/css'
+        },
+        {
             component: 'require.js',
             src: './bower_components/requirejs/require.js',
             destination: './builder/public/assets/libs'
         },
         {
-            component: 'animate.css',
-            src: './bower_components/animate.css/animate.min.css',
-            destination: './builder/public/assets/css'
+            component: 'eventEmitter',
+            src: './bower_components/eventEmitter/EventEmitter.min.js',
+            destination: './builder/public/assets/libs'
         }
     ];
     async.each(assets, function (item, callback) {
@@ -66,8 +71,8 @@ gulp.task('app:platform', function (callback) {
 });
 
 gulp.task('app:run', function (callback) {
-    exec('cordova run android', function(error, stdout, stderr) {
-        if(error) {
+    exec('cordova run android', function (error, stdout, stderr) {
+        if (error) {
             console.log(error);
         } else {
             console.log(stdout);
