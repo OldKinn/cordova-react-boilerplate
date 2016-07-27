@@ -33,6 +33,7 @@
   },
   "homepage": "https://github.com/OldKinn/cordova-react-boilerplate",
   "devDependencies": {
+    "async": "^2.0.1",
     "babel-core": "^6.11.4",
     "babel-eslint": "^6.1.2",
     "babel-loader": "^6.2.4",
