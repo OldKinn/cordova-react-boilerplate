@@ -1,5 +1,5 @@
 node_modules
-builder/dist
+builder/dist/
 .idea/
 platforms/
 plugins/
