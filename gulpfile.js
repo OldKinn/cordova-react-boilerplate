@@ -1,10 +1,11 @@
-var gulp = require('gulp');
-var async = require('async');
-var chalk = require('chalk');
-var green = chalk.bold.green;
+const exec = require('child_process').exec;
+const gulp = require('gulp');
+const async = require('async');
+const chalk = require('chalk');
+const green = chalk.bold.green;
 
 gulp.task('assets', function (callback) {
-    var assets = [
+    const assets = [
         {
             component: 'bootstrap',
             src: [
@@ -40,6 +41,38 @@ gulp.task('assets', function (callback) {
     });
 });
 
-gulp.task('copy:js', function () {
-    gulp.src('./builder/dist/bundle.js').pipe(gulp.dest('./www/public'));
+gulp.task('copy:assets', function () {
+    return gulp.src('./builder/public/**').pipe(gulp.dest('./www/public'));
+});
+
+gulp.task('copy:bundle', function () {
+    return gulp.src('./builder/dist/bundle.js').pipe(gulp.dest('./www/public'));
+});
+
+gulp.task('copy', ['copy:assets', 'copy:bundle'], function () {
+    console.log(green('copy static resources success!'));
+});
+
+gulp.task('app:platform', function (callback) {
+    exec('cordova platform add android', function (error, stdout, stderr) {
+        if (error) {
+            console.error(error);
+        } else {
+            console.log(stdout);
+            console.log(stderr);
+        }
+        callback();
+    });
+});
+
+gulp.task('app:run', function (callback) {
+    exec('cordova run android', function(error, stdout, stderr) {
+        if(error) {
+            console.log(error);
+        } else {
+            console.log(stdout);
+            console.log(stderr);
+        }
+        callback();
+    });
 });
