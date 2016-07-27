@@ -4,7 +4,7 @@ var webpack = require('webpack');
 module.exports = {
     // devtool: 'source-map',
     entry: [
-        './bundler/src/index'
+        './builder/src/index'
     ],
     output: {
         path: path.join(__dirname, 'dist'),
@@ -20,6 +20,7 @@ module.exports = {
         }),
         new webpack.optimize.UglifyJsPlugin({
             compressor: {
+                drop_console: true,
                 warnings: false
             }
         })
@@ -29,7 +30,7 @@ module.exports = {
             {
                 test: /\.js$/,
                 loaders: ['babel'],
-                include: path.join(__dirname, 'bundler/src')
+                include: path.join(__dirname, 'src')
             }
         ]
     }

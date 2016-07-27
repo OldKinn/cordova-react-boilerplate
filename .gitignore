@@ -1,5 +1,5 @@
 node_modules
-bundler/dist
+bundle/dist
 .idea/
 platforms/
 plugins/

@@ -12,17 +12,17 @@ gulp.task('assets', function (callback) {
                 './bower_components/bootstrap/dist/fonts/**'
             ],
             base: './bower_components/bootstrap/dist',
-            destination: './bundler/public/assets/bootstrap'
+            destination: './builder/public/assets/bootstrap'
         },
         {
             component: 'require.js',
             src: './bower_components/requirejs/require.js',
-            destination: './bundler/public/assets/libs'
+            destination: './builder/public/assets/libs'
         },
         {
             component: 'animate.css',
             src: './bower_components/animate.css/animate.min.css',
-            destination: './bundler/public/assets/css'
+            destination: './builder/public/assets/css'
         }
     ];
     async.each(assets, function (item, callback) {
@@ -40,6 +40,6 @@ gulp.task('assets', function (callback) {
     });
 });
 
-gulp.task('build', function () {
-
+gulp.task('copy:js', function () {
+    gulp.src('./builder/dist/bundle.js').pipe(gulp.dest('./www/public'));
 });
