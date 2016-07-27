@@ -4,5 +4,4 @@ builder/dist/
 platforms/
 plugins/
 bower_components/
-builder/public/
 www/public/
