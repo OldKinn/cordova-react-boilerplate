@@ -15,7 +15,7 @@ gulp.task('assets', function (callback) {
             destination: './bundler/public/assets/bootstrap'
         },
         {
-            component: 'requirejs',
+            component: 'require.js',
             src: './bower_components/requirejs/require.js',
             destination: './bundler/public/assets/libs'
         },

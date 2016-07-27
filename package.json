@@ -14,15 +14,12 @@
     "url": "https://github.com/OldKinn/cordova-react-boilerplate.git"
   },
   "keywords": [
+    "cordova",
     "react",
     "reactjs",
     "boilerplate",
-    "hot",
-    "reload",
-    "hmr",
-    "live",
-    "edit",
     "webpack",
+    "edit",
     "babel",
     "react-transform"
   ],

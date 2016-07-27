@@ -7,15 +7,12 @@
   ],
   "license": "CC0-1.0",
   "keywords": [
+    "cordova",
     "react",
     "reactjs",
     "boilerplate",
-    "hot",
-    "reload",
-    "hmr",
-    "live",
-    "edit",
     "webpack",
+    "edit",
     "babel",
     "react-transform"
   ],
