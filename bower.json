@@ -1,6 +1,6 @@
 {
   "name": "cordova-react-boilerplate",
-  "description": "搭建React开发环境开发Cordova",
+  "description": "搭建cordova应用开发的环境，使用React、React-router、Redux",
   "main": "",
   "authors": [
     "Leon <leonooo@163.com> (https://github.com/OldKinn)"

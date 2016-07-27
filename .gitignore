@@ -1,6 +1,8 @@
 node_modules
-bundle/dist
+builder/dist
 .idea/
 platforms/
 plugins/
 bower_components/
+builder/public/
+www/public/
