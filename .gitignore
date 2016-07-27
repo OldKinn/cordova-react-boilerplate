@@ -3,3 +3,4 @@ bundler/dist
 .idea/
 platforms/
 plugins/
+bower_components/

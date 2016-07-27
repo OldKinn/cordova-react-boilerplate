@@ -1,0 +1,33 @@
+{
+  "name": "cordova-react-boilerplate",
+  "description": "搭建React开发环境开发Cordova",
+  "main": "",
+  "authors": [
+    "Leon <leonooo@163.com> (https://github.com/OldKinn)"
+  ],
+  "license": "CC0-1.0",
+  "keywords": [
+    "react",
+    "reactjs",
+    "boilerplate",
+    "hot",
+    "reload",
+    "hmr",
+    "live",
+    "edit",
+    "webpack",
+    "babel",
+    "react-transform"
+  ],
+  "homepage": "",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap": "^3.3.7"
+  }
+}
