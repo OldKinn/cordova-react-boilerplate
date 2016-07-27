@@ -1,9 +1,7 @@
 import './css/app.css'
 import React from 'react'
 import {render} from 'react-dom'
-import {Router, browserHistory} from 'react-router'
-
-global.ee = new EventEmitter();
+import {Router, hashHistory} from 'react-router'
 
 const rootRoute = {
     childRoutes: [{
@@ -18,4 +16,4 @@ const rootRoute = {
     }]
 }
 
-render(<Router history={browserHistory} routes={rootRoute}/>, document.getElementById('root'));
+render(<Router history={hashHistory} routes={rootRoute}/>, document.getElementById('root'));

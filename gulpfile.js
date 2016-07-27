@@ -52,7 +52,7 @@ gulp.task('copy:assets', function () {
 });
 
 gulp.task('copy:bundle', function () {
-    return gulp.src('./builder/dist/bundle.js').pipe(gulp.dest('./www/public'));
+    return gulp.src('./builder/dist/**').pipe(gulp.dest('./www/public'));
 });
 
 gulp.task('copy', ['copy:assets', 'copy:bundle'], function () {
