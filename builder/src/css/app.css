@@ -1,0 +1,57 @@
+body {
+    padding-bottom: 55px;
+}
+
+.bottom-nav > li {
+    display: inline-block;
+    width: 25%;
+    text-align: center;
+}
+
+.bottom-nav > li > a {
+    padding: 6px 10px;
+}
+
+.bottom-nav .center-block {
+    font-size: 12px;
+}
+
+.router-main {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+}
+
+.queue-anim-leaving {
+    position: absolute;
+    width: 100%;
+}
+
+.card {
+    position: relative;
+    background: #fff;
+    box-shadow: 0 0 4px rgba(0, 0, 0, .2);
+}
+
+.card:before {
+    background: url("../../public/images/shadow-right.png") bottom center no-repeat;
+    content: '';
+    display: block;
+    width: 100px;
+    height: 15px;
+    position: absolute;
+    bottom: -9px;
+    right: -6px;
+}
+
+.card:after {
+    clear: both;
+    background: url("../../public/images/shadow-left.png") bottom left no-repeat;
+    content: '';
+    display: block;
+    width: 100px;
+    height: 15px;
+    position: absolute;
+    bottom: -11px;
+    left: -3px;
+}

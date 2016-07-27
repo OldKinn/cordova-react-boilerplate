@@ -10,6 +10,7 @@ gulp.task('assets', function (callback) {
             component: 'bootstrap',
             src: [
                 './bower_components/bootstrap/dist/css/bootstrap.min.css',
+                './bower_components/bootstrap/dist/css/bootstrap.min.css.map',
                 './bower_components/bootstrap/dist/fonts/**'
             ],
             base: './bower_components/bootstrap/dist',
