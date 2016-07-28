@@ -11,8 +11,8 @@ class App extends Component {
             key: location.pathname.split('/')[1] || 'root'
         };
         const animateConfig = [
-            {translateX: [0, '100%']},
-            {translateX: [0, '-100%']}
+            {opacity: [1, 0], translateX: [0, '100%']},
+            {opacity: [0, 1], translateX: [0, '-100%']}
         ];
         return (
             <div>
@@ -20,8 +20,8 @@ class App extends Component {
                 <QueueAnim
                     className="router-main"
                     animConfig={animateConfig}
-                    duration={400}
-                    ease='easeOutCubic'>
+                    duration={300}
+                    ease='easeOutQuart'>
                     {React.cloneElement(this.props.children || <Dashboard/>, props)}
                 </QueueAnim>
             </div>
