@@ -1,5 +1,5 @@
 import React, {Component} from 'react'
-import {Link} from 'react-router'
+import {Link, IndexLink} from 'react-router'
 
 class GlobalNav extends Component {
 
@@ -12,10 +12,10 @@ class GlobalNav extends Component {
             <nav className="navbar navbar-default navbar-fixed-bottom">
                 <ul className="nav bottom-nav">
                     <li>
-                        <Link to="/home" activeClassName="active">
+                        <IndexLink to="/" activeClassName="active">
                             <span className="glyphicon glyphicon-home"/>
                             <span className="center-block">首页</span>
-                        </Link>
+                        </IndexLink>
                     </li>
                     <li>
                         <Link to="/relation" activeClassName="active">

@@ -4,13 +4,13 @@ import cloneDeep from 'lodash/cloneDeep'
 class Card extends Component {
     render() {
         let props = cloneDeep(this.props);
-        let className = 'card';
+        let className = ['card'];
         if (props.className) {
-            className += ' ' + props.className;
+            className.push(props.className);
             delete props.className;
         }
         return (
-            <div className={className} {...props}>
+            <div className={className.join(' ')} {...props}>
                 {this.props.children}
             </div>
         )

@@ -2,6 +2,12 @@ import React, {Component} from 'react'
 import Card from 'commons/components/Card'
 
 class Dashboard extends Component {
+
+    componentDidMount() {
+        const {actions} = this.props;
+        actions.setCache('isLogin', true);
+    }
+
     render() {
         return (
             <div>
