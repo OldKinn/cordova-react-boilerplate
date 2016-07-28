@@ -9,7 +9,7 @@ const rootRoute = {
         component: require('./components/App'),
         childRoutes: [
             require('./routes/Explore'),
-            require('./routes/Messages'),
+            require('./routes/Home'),
             require('./routes/Profile'),
             require('./routes/Relation')
         ]

@@ -1,6 +1,5 @@
-import React, {Component} from 'react'
+import React, {Component, PropTypes} from 'react'
 import QueueAnim from 'rc-queue-anim'
-
 import Dashboard from './Dashboard'
 import GlobalNav from './GlobalNav'
 
@@ -14,8 +13,9 @@ class App extends Component {
             {opacity: [1, 0], translateX: [0, '100%']},
             {opacity: [0, 1], translateX: [0, '-100%']}
         ];
+        let style = {minHeight: window.innerHeight};
         return (
-            <div>
+            <div style={style}>
                 <GlobalNav />
                 <QueueAnim
                     className="router-main"
@@ -29,4 +29,4 @@ class App extends Component {
     }
 }
 
-module.exports = App
+module.exports = App;
