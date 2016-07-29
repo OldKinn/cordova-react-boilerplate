@@ -5,6 +5,7 @@ import {render} from 'react-dom'
 import {Router, hashHistory} from 'react-router'
 import {Provider} from 'react-redux'
 import configureStore from './store/configureStore'
+import {getStorage} from 'commons/utils'
 import 'commons/bus'
 
 const store = configureStore();
@@ -18,9 +19,15 @@ const rootRoute = {
                 window.scrollTo(0, 0);
             },
             getComponent: (nextState, cb) => {
-                return require.ensure([], (require) => {
-                    cb(null, require('./components/Dashboard'))
-                })
+                if (getStorage('isLogin')) {
+                    return require.ensure([], (require) => {
+                        cb(null, require('./components/Dashboard'))
+                    })
+                } else {
+                    return require.ensure([], (require) => {
+                        cb(null, require('./components/Login'))
+                    })
+                }
             }
         },
         childRoutes: [

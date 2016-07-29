@@ -6,8 +6,7 @@ var app = {
         document.addEventListener('deviceready', this.onDeviceReady, false);
     },
     onDeviceReady: function () {
-        console.log('启动成功！');
-        EVENT_BUS.emit('deviceReady');
+        require(['public/bundle']);
     },
     request: function (url, params, callback) {
 
