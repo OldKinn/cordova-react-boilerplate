@@ -14,6 +14,9 @@ const rootRoute = {
         path: '/',
         component: require('./components/App'),
         indexRoute: {
+            onLeave: () => {
+                window.scrollTo(0, 0);
+            },
             getComponent: (nextState, cb) => {
                 return require.ensure([], (require) => {
                     cb(null, require('./components/Dashboard'))
