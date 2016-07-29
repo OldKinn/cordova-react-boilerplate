@@ -1,5 +1,6 @@
 const exec = require('child_process').exec;
 const gulp = require('gulp');
+const uglify = require('gulp-uglify');
 const async = require('async');
 const chalk = require('chalk');
 const green = chalk.bold.green;
@@ -57,6 +58,10 @@ gulp.task('copy:bundle', function () {
 
 gulp.task('copy', ['copy:assets', 'copy:bundle'], function () {
     console.log(green('copy static resources success!'));
+});
+
+gulp.task('compress', function () {
+    return gulp.src('www/js/index.js').pipe(uglify()).pipe(gulp.dest('www/public'));
 });
 
 gulp.task('app:platform', function (callback) {
