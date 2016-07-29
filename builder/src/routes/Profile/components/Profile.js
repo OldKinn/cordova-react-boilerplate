@@ -14,7 +14,7 @@ class Profile extends Component {
                     <Ripples>
                         <p className="margin padding">手机:{cache.mobile}</p>
                     </Ripples>
-                    <Ripples style={{display: 'inline-block'}}>
+                    <Ripples style={{display: 'inline-block'}} color="#eee">
                         <button className="btn btn-lg btn-success">Hello</button>
                     </Ripples>
                 </Card>

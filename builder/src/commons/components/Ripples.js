@@ -42,7 +42,7 @@ class Ripples extends Component {
         this.setState({
             rippleStyle: {
                 top, left,
-                opacity: 1,
+                opacity: 0.6,
                 backgroundColor: color
             }
         });

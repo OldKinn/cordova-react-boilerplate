@@ -5,7 +5,6 @@ import {render} from 'react-dom'
 import {Router, hashHistory} from 'react-router'
 import {Provider} from 'react-redux'
 import configureStore from './store/configureStore'
-import Dashboard from './components/Dashboard'
 import 'commons/bus'
 
 const store = configureStore();
@@ -14,7 +13,13 @@ const rootRoute = {
     childRoutes: [{
         path: '/',
         component: require('./components/App'),
-        indexRoute: {component: Dashboard},
+        indexRoute: {
+            getComponent: (nextState, cb) => {
+                return require.ensure([], (require) => {
+                    cb(null, require('./components/Dashboard'))
+                })
+            }
+        },
         childRoutes: [
             require('./routes/Explore'),
             require('./routes/Profile'),

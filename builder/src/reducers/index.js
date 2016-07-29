@@ -9,7 +9,9 @@ function cache(state = {
     isBlock: false,
     // 是否加载中
     isLoading: false,
+    // 用户姓名
     userName: 'Old King',
+    // 手机号码
     mobile: '16888888888'
 }, action) {
     switch (action.type) {

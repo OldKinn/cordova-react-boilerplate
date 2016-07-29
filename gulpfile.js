@@ -48,6 +48,10 @@ gulp.task('assets', function (callback) {
     });
 });
 
+gulp.task('compress', function () {
+    return gulp.src('index.js').pipe(uglify()).pipe(gulp.dest('www/js'));
+});
+
 gulp.task('copy:assets', function () {
     return gulp.src('./builder/public/**').pipe(gulp.dest('./www/public'));
 });
@@ -56,12 +60,8 @@ gulp.task('copy:bundle', function () {
     return gulp.src('./builder/dist/**').pipe(gulp.dest('./www/public'));
 });
 
-gulp.task('copy', ['copy:assets', 'copy:bundle'], function () {
+gulp.task('copy', ['copy:assets', 'copy:bundle', 'compress'], function () {
     console.log(green('copy static resources success!'));
-});
-
-gulp.task('compress', function () {
-    return gulp.src('index.js').pipe(uglify()).pipe(gulp.dest('www/js'));
 });
 
 gulp.task('app:platform', function (callback) {

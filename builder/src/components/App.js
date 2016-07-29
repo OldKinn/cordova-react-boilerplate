@@ -8,15 +8,7 @@ import * as Actions from '../actions'
 import GlobalNav from './GlobalNav'
 
 class App extends Component {
-
-    componentDidMount() {
-        const {actions} = this.props;
-        EVENT_BUS.addListener('deviceReady', () => {
-            alert('设备启动...');
-            actions.setCache('deviceReady', true);
-        });
-    }
-
+    
     render() {
         const {location, actions, cache} = this.props;
         const props = {
