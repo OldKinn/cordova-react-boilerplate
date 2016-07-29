@@ -6,6 +6,7 @@ html, body {
 .navbar-fixed-bottom, .navbar-fixed-top {
     z-index: 50;
     min-height: 30px;
+    box-shadow: 0 0 10px #d2d2d2;
 }
 
 .toolbar {
@@ -29,7 +30,7 @@ html, body {
 }
 
 .toolbar a.active {
-    background-color: #eee;
+    background-color: rgba(0, 0, 0, .1);
     color: #EE5567;
 }
 

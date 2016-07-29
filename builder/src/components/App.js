@@ -28,7 +28,7 @@ class App extends Component {
             {opacity: [1, 0], translateX: [0, '100%']},
             {opacity: [0, 1], translateX: [0, '-100%']}
         ];
-        let style = {minHeight: window.innerHeight};
+        let style = {minHeight: window.innerHeight, paddingBottom: 60};
         return (
             <div style={style}>
                 <GlobalNav/>

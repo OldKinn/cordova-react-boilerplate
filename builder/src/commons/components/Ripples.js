@@ -5,8 +5,8 @@ const rippleStyle = {
     position: 'absolute',
     borderRadius: '50%',
     opacity: 0,
-    width: 40,
-    height: 40,
+    width: 50,
+    height: 50,
     transform: 'translate(-50%, -50%)',
     pointerEvents: 'none'
 };
@@ -29,10 +29,16 @@ class Ripples extends Component {
 
     handleClick(event) {
         event.stopPropagation();
-        const {onClick, color, during} = this.props;
+        const {onClick, color, during, center} = this.props;
         const {offsetWidth, offsetHeight} = event.currentTarget;
-        const left = event.nativeEvent.offsetX;
-        const top = event.nativeEvent.offsetY;
+        let {left, top} = {
+            left: '50%',
+            top: '50%'
+        };
+        if (!center) {
+            left = event.nativeEvent.offsetX;
+            top = event.nativeEvent.offsetY;
+        }
         this.setState({
             rippleStyle: {
                 top, left,
@@ -47,10 +53,11 @@ class Ripples extends Component {
                     left, top,
                     transform: `${rippleStyle.transform} scale(${size / 9})`,
                     opacity: 0,
+                    backgroundColor: color,
                     transition: `all ${during}ms`
                 }
             })
-        }, 50);
+        }, 10);
         if (typeof onClick === 'function') {
             onClick(event)
         }
@@ -60,7 +67,7 @@ class Ripples extends Component {
         let divStyle = merge({}, this.props.style, wrapStyle);
         let waveStyle = merge({}, rippleStyle, this.state.rippleStyle);
         return (
-            <div style={divStyle} onClick={this.handleClick}>
+            <div style={divStyle} onMouseDown={this.handleClick}>
                 {this.props.children}
                 <span style={waveStyle}/>
             </div>
@@ -70,12 +77,14 @@ class Ripples extends Component {
 
 Ripples.propTypes = {
     during: PropTypes.number,
-    color: PropTypes.string
+    color: PropTypes.string,
+    center: PropTypes.bool
 };
 
 Ripples.defaultProps = {
-    during: 600,
-    color: 'rgba(0, 0, 0, .3)'
+    during: 450,
+    color: 'rgba(0, 0, 0, .1)',
+    center: false
 };
 
 

@@ -9,7 +9,7 @@ class GlobalNav extends Component {
             <nav className="navbar navbar-default navbar-fixed-bottom">
                 <ul className="toolbar">
                     <li>
-                        <Ripples>
+                        <Ripples center>
                             <IndexLink to="/" activeClassName="active">
                                 <span className="glyphicon glyphicon-home"/>
                                 <span className="center-block">首页</span>
@@ -17,15 +17,15 @@ class GlobalNav extends Component {
                         </Ripples>
                     </li>
                     <li>
-                        <Ripples>
+                        <Ripples center>
                             <Link to="/relation" activeClassName="active">
-                                <span className="glyphicon glyphicon-apple"/>
+                                <span className="glyphicon glyphicon-heart-empty"/>
                                 <span className="center-block">朋友圈</span>
                             </Link>
                         </Ripples>
                     </li>
                     <li>
-                        <Ripples>
+                        <Ripples center>
                             <Link to="/explore" activeClassName="active">
                                 <span className="glyphicon glyphicon-search"/>
                                 <span className="center-block">发现</span>
@@ -33,7 +33,7 @@ class GlobalNav extends Component {
                         </Ripples>
                     </li>
                     <li>
-                        <Ripples>
+                        <Ripples center>
                             <Link to="/profile" activeClassName="active">
                                 <span className="glyphicon glyphicon-user"/>
                                 <span className="center-block">我</span>
