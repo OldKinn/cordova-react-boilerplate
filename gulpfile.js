@@ -61,7 +61,7 @@ gulp.task('copy', ['copy:assets', 'copy:bundle'], function () {
 });
 
 gulp.task('compress', function () {
-    return gulp.src('www/js/index.js').pipe(uglify()).pipe(gulp.dest('www/public'));
+    return gulp.src('index.js').pipe(uglify()).pipe(gulp.dest('www/js'));
 });
 
 gulp.task('app:platform', function (callback) {

@@ -1,4 +1,4 @@
-import * as Const from 'commons/Const'
+import * as Const from 'commons/const'
 
 // 设置页面级的缓存
 export function setCache(key, value) {

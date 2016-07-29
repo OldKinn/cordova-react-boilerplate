@@ -2,10 +2,21 @@ import React, {Component, PropTypes} from 'react'
 import {bindActionCreators} from 'redux'
 import {connect} from 'react-redux'
 import QueueAnim from 'rc-queue-anim'
+import Cover from 'commons/components/Cover'
+import Loader from 'commons/components/Loader'
 import * as Actions from '../actions'
 import GlobalNav from './GlobalNav'
 
 class App extends Component {
+
+    componentDidMount() {
+        const {actions} = this.props;
+        EVENT_BUS.addListener('deviceReady', () => {
+            alert('设备启动...');
+            actions.setCache('deviceReady', true);
+        });
+    }
+
     render() {
         const {location, actions, cache} = this.props;
         const props = {
@@ -20,7 +31,7 @@ class App extends Component {
         let style = {minHeight: window.innerHeight};
         return (
             <div style={style}>
-                <GlobalNav />
+                <GlobalNav/>
                 <QueueAnim
                     className="router-main"
                     animConfig={animateConfig}
@@ -28,6 +39,8 @@ class App extends Component {
                     ease='easeOutQuart'>
                     {React.cloneElement(this.props.children, props)}
                 </QueueAnim>
+                <Cover isBlock={cache.isBlock}/>
+                <Loader isLoading={cache.isLoading}/>
             </div>
         )
     }
