@@ -1,12 +1,12 @@
 import './css/app.css'
 import './css/helper.css'
+import './css/form.css'
 import React from 'react'
 import {render} from 'react-dom'
 import {Router, hashHistory} from 'react-router'
 import {Provider} from 'react-redux'
 import configureStore from './store/configureStore'
 import {getStorage} from 'commons/utils'
-import 'commons/bus'
 
 const store = configureStore();
 
@@ -18,22 +18,15 @@ const rootRoute = {
             onLeave: () => {
                 window.scrollTo(0, 0);
             },
-            getComponent: (nextState, cb) => {
-                if (getStorage('isLogin')) {
-                    return require.ensure([], (require) => {
-                        cb(null, require('./components/Dashboard'))
-                    })
-                } else {
-                    return require.ensure([], (require) => {
-                        cb(null, require('./components/Login'))
-                    })
+            onEnter: (nextState, replace) => {
+                if (getStorage('isLogin', false)) {
+                    replace('/frameset');
                 }
-            }
+            },
+            component: require('./components/Login')
         },
         childRoutes: [
-            require('./routes/Explore'),
-            require('./routes/Profile'),
-            require('./routes/Relation')
+            require('./routes/Frameset')
         ]
     }]
 }

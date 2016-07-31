@@ -1,6 +1,8 @@
 import {combineReducers} from 'redux'
 import set from 'lodash/set'
+import clone from 'lodash/clone'
 import * as Const from 'commons/const'
+import {getStorage} from 'commons/utils'
 
 // 页面展现的控制状态
 function cache(state = {
@@ -12,14 +14,15 @@ function cache(state = {
     // 用户姓名
     userName: 'Old King',
     // 手机号码
-    mobile: '16888888888'
+    mobile: getStorage('mobile', '16888888888')
 }, action) {
     switch (action.type) {
         case Const.ACTION_SET_CACHE:
-            set(state, action.key, action.value);
-            return state;
+            let next = clone(state);
+            set(next, action.key, action.value);
+            return next;
         default:
-            return state
+            return state;
     }
 }
 

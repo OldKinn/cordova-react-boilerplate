@@ -5,10 +5,9 @@ import QueueAnim from 'rc-queue-anim'
 import Cover from 'commons/components/Cover'
 import Loader from 'commons/components/Loader'
 import * as Actions from '../actions'
-import GlobalNav from './GlobalNav'
 
 class App extends Component {
-    
+
     render() {
         const {location, actions, cache} = this.props;
         const props = {
@@ -20,12 +19,10 @@ class App extends Component {
             {opacity: [1, 0], translateX: [0, '100%']},
             {opacity: [0, 1], translateX: [0, '-100%']}
         ];
-        let style = {minHeight: window.innerHeight, paddingBottom: 60};
         return (
-            <div style={style}>
-                <GlobalNav/>
+            <div className="app-main">
                 <QueueAnim
-                    className="router-main"
+                    className="top-routers"
                     animConfig={animateConfig}
                     duration={300}
                     ease='easeOutQuart'>

@@ -13,13 +13,18 @@ export function randomID() {
 
 // 使用本地存储
 export function setStorage(key, value) {
-    let storage = window.localStorage.getItem('cordova.react');
+    let json = window.localStorage.getItem('cordova.react');
+    if (!json || typeof json !== 'string') {
+        json = JSON.stringify({});
+    }
+    let storage = JSON.parse(json);
     set(storage, key, value);
-    window.localStorage.setItem('cordova.react', storage);
+    window.localStorage.setItem('cordova.react', JSON.stringify(storage));
 }
 
 // 获取本地存储
 export function getStorage(key, defaultValue) {
-    let storage = window.localStorage.getItem('cordova.react');
+    let json = window.localStorage.getItem('cordova.react');
+    let storage = JSON.parse(json);
     return get(storage, key, defaultValue);
 }
