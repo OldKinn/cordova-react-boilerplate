@@ -9,7 +9,7 @@ import {render} from 'react-dom'
 import {Router, hashHistory} from 'react-router'
 import {Provider} from 'react-redux'
 import configureStore from './store/configureStore'
-import {getStorage} from 'commons/utils'
+import utils from 'commons/utils'
 
 const store = configureStore();
 
@@ -19,11 +19,8 @@ const rootRoute = {
             path: '/',
             component: require('./components/App'),
             indexRoute: {
-                onLeave: () => {
-                    window.scrollTo(0, 0);
-                },
                 onEnter: (nextState, replace) => {
-                    if (getStorage('isLogin', false)) {
+                    if (utils.getStorage('isLogin', false)) {
                         replace('/home');
                     }
                 },

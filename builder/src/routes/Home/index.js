@@ -13,7 +13,7 @@ module.exports = {
     getComponents(nextState, cb) {
         require.ensure([], (require) => {
             cb(null, {
-                navbar : require('commons/components/GlobalNav'),
+                navbar: require('commons/components/GlobalNav'),
                 main: require('./components/Home')
             })
         })
