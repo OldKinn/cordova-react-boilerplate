@@ -9,7 +9,7 @@ import * as Actions from '../actions'
 class App extends Component {
 
     render() {
-        const {location, actions, cache} = this.props;
+        const {location, actions, cache, children, navbar, main} = this.props;
         const props = {
             key: location.pathname.split('/')[1] || 'root',
             actions: actions,
@@ -19,15 +19,35 @@ class App extends Component {
             {opacity: [1, 0], translateX: [0, '100%']},
             {opacity: [0, 1], translateX: [0, '-100%']}
         ];
+        const createContent = () => {
+            if (navbar && main) {
+                return (
+                    <div>
+                        <QueueAnim
+                            className="router-main"
+                            animConfig={animateConfig}
+                            duration={300}
+                            ease='easeOutQuart'>
+                            {React.cloneElement(main, props)}
+                        </QueueAnim>
+                        {navbar}
+                    </div>
+                )
+            } else if (children) {
+                return (
+                    <QueueAnim
+                        className="router-main"
+                        animConfig={animateConfig}
+                        duration={300}
+                        ease='easeOutQuart'>
+                        {React.cloneElement(children, props)}
+                    </QueueAnim>
+                )
+            }
+        }
         return (
             <div className="app-main">
-                <QueueAnim
-                    className="top-routers"
-                    animConfig={animateConfig}
-                    duration={300}
-                    ease='easeOutQuart'>
-                    {React.cloneElement(this.props.children, props)}
-                </QueueAnim>
+                {createContent()}
                 <Cover isBlock={cache.isBlock}/>
                 <Loader isLoading={cache.isLoading}/>
             </div>

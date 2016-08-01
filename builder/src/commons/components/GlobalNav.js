@@ -1,5 +1,5 @@
 import React, {Component} from 'react'
-import {Link, IndexLink} from 'react-router'
+import {Link} from 'react-router'
 import Ripples from 'commons/components/Ripples'
 
 class GlobalNav extends Component {
@@ -10,15 +10,15 @@ class GlobalNav extends Component {
                 <ul className="toolbar">
                     <li>
                         <Ripples center>
-                            <IndexLink to="/frameset" activeClassName="active">
+                            <Link to="/home" activeClassName="active">
                                 <span className="glyphicon glyphicon-home"/>
                                 <span className="center-block">首页</span>
-                            </IndexLink>
+                            </Link>
                         </Ripples>
                     </li>
                     <li>
                         <Ripples center>
-                            <Link to="/frameset/relation" activeClassName="active">
+                            <Link to="/relation" activeClassName="active">
                                 <span className="glyphicon glyphicon-heart-empty"/>
                                 <span className="center-block">朋友圈</span>
                             </Link>
@@ -26,7 +26,7 @@ class GlobalNav extends Component {
                     </li>
                     <li>
                         <Ripples center>
-                            <Link to="/frameset/explore" activeClassName="active">
+                            <Link to="/explore" activeClassName="active">
                                 <span className="glyphicon glyphicon-search"/>
                                 <span className="center-block">发现</span>
                             </Link>
@@ -34,7 +34,7 @@ class GlobalNav extends Component {
                     </li>
                     <li>
                         <Ripples center>
-                            <Link to="/frameset/profile" activeClassName="active">
+                            <Link to="/profile" activeClassName="active">
                                 <span className="glyphicon glyphicon-user"/>
                                 <span className="center-block">我</span>
                             </Link>
@@ -46,4 +46,4 @@ class GlobalNav extends Component {
     }
 }
 
-export default GlobalNav
+module.exports = GlobalNav

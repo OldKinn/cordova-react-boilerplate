@@ -4,8 +4,8 @@ import Card from 'commons/components/Card'
 class Relation extends Component {
     render() {
         return (
-            <div className="ssss">
-                <Card style={{padding: 20, margin: 5}}>
+            <div className="padding">
+                <Card className="padding">
                     <h3>北方的夜</h3>
                     <p>
                         冬季，北方的夜晚总是那么的寒冷，那些沙丘上面布满了梦幻一般的月光；

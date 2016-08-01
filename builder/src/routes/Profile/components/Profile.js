@@ -1,14 +1,14 @@
-import React, {Component} from 'react'
+import React, {Component, PropTypes} from 'react'
 import Ripples from 'commons/components/Ripples'
 import Card from 'commons/components/Card'
-import {setStorage} from 'commons/utils'
+import utils from 'commons/utils'
 
 class Profile extends Component {
     render() {
         const {cache} = this.props;
         return (
-            <div>
-                <Card className="padding margin">
+            <div className="padding">
+                <Card className="padding">
                     <Ripples>
                         <p className="margin padding">姓名:{cache.userName}</p>
                     </Ripples>
@@ -26,8 +26,14 @@ class Profile extends Component {
     logout() {
         const {actions} = this.props;
         actions.setCache('isLogin', false);
-        setStorage('isLogin', false);
+        utils.setStorage('isLogin', false);
+        this.context.router.push('/');
     }
+}
+
+
+Profile.contextTypes = {
+    router: PropTypes.object.isRequired
 }
 
 module.exports = Profile

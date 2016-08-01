@@ -25,6 +25,13 @@ class Ripples extends Component {
             wrapStyle: {}
         };
         this.handleClick = this.handleClick.bind(this);
+        this.timer = null;
+    }
+
+    componentWillUnmount() {
+        if (this.timer) {
+            clearTimeout(this.timer);
+        }
     }
 
     handleClick(event) {
@@ -46,7 +53,7 @@ class Ripples extends Component {
                 backgroundColor: color
             }
         });
-        setTimeout(()=> {
+        this.timer = setTimeout(()=> {
             const size = Math.max(offsetWidth, offsetHeight);
             this.setState({
                 rippleStyle: {

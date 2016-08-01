@@ -1,7 +1,7 @@
 import utils from 'commons/utils'
 
 module.exports = {
-    path: 'explore',
+    path: 'home',
     onEnter: (nextState, replace) => {
         if (!utils.getStorage('isLogin', false)) {
             replace('/');
@@ -13,8 +13,8 @@ module.exports = {
     getComponents(nextState, cb) {
         require.ensure([], (require) => {
             cb(null, {
-                navbar: require('commons/components/GlobalNav'),
-                main: require('./components/Explore')
+                navbar : require('commons/components/GlobalNav'),
+                main: require('./components/Home')
             })
         })
     }

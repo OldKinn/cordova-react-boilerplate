@@ -1,5 +1,5 @@
 import React, {Component, PropTypes} from 'react'
-import {setStorage} from 'commons/utils'
+import utils from 'commons/utils'
 
 class Login extends Component {
 
@@ -47,8 +47,8 @@ class Login extends Component {
         event.preventDefault();
         const {actions} = this.props;
         actions.setCache('isLogin', true);
-        setStorage('isLogin', true);
-        this.context.router.push('/frameset');
+        utils.setStorage('isLogin', true);
+        this.context.router.push('/home');
     }
 }
 

@@ -11,24 +11,29 @@ import {getStorage} from 'commons/utils'
 const store = configureStore();
 
 const rootRoute = {
-    childRoutes: [{
-        path: '/',
-        component: require('./components/App'),
-        indexRoute: {
-            onLeave: () => {
-                window.scrollTo(0, 0);
+    childRoutes: [
+        {
+            path: '/',
+            component: require('./components/App'),
+            indexRoute: {
+                onLeave: () => {
+                    window.scrollTo(0, 0);
+                },
+                onEnter: (nextState, replace) => {
+                    if (getStorage('isLogin', false)) {
+                        replace('/home');
+                    }
+                },
+                component: require('./components/Login')
             },
-            onEnter: (nextState, replace) => {
-                if (getStorage('isLogin', false)) {
-                    replace('/frameset');
-                }
-            },
-            component: require('./components/Login')
-        },
-        childRoutes: [
-            require('./routes/Frameset')
-        ]
-    }]
+            childRoutes: [
+                require('./routes/Home'),
+                require('./routes/Explore'),
+                require('./routes/Profile'),
+                require('./routes/Relation')
+            ]
+        }
+    ]
 }
 
 render((

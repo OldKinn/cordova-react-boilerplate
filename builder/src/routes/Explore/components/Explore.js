@@ -5,8 +5,8 @@ class Explore extends React.Component {
 
     render() {
         return (
-            <div>
-                <Card style={{padding: 20, margin: 5}}>
+            <div className="padding">
+                <Card className="padding">
                     <h3>一抒乡情</h3>
                     <p>故乡的夏夜还是记忆里的那般，</p>
                     <p>宁静、舒爽、惬意。</p>
