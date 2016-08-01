@@ -19,14 +19,18 @@ class App extends Component {
             {opacity: [1, 0], translateX: [0, '100%']},
             {opacity: [0, 1], translateX: [0, '-100%']}
         ];
+        const style = {
+            minHeight: window.innerHeight
+        };
         const createContent = () => {
             if (navbar && main) {
                 return (
                     <div>
                         <QueueAnim
+                            style={style}
                             className="router-main"
                             animConfig={animateConfig}
-                            duration={300}
+                            duration={400}
                             ease='easeOutQuart'>
                             {React.cloneElement(main, props)}
                         </QueueAnim>
@@ -38,7 +42,7 @@ class App extends Component {
                     <QueueAnim
                         className="router-main"
                         animConfig={animateConfig}
-                        duration={300}
+                        duration={400}
                         ease='easeOutQuart'>
                         {React.cloneElement(children, props)}
                     </QueueAnim>
@@ -48,8 +52,8 @@ class App extends Component {
         return (
             <div className="app-main">
                 {createContent()}
-                <Cover isBlock={cache.isBlock}/>
-                <Loader isLoading={cache.isLoading}/>
+                <Cover active={cache.isBlock}/>
+                <Loader active={cache.isLoading}/>
             </div>
         )
     }

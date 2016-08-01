@@ -45,9 +45,10 @@ class Login extends Component {
 
     handleSubmit(event) {
         event.preventDefault();
-        const {actions} = this.props;
+        const {actions, cache} = this.props;
         actions.setCache('isLogin', true);
         utils.setStorage('isLogin', true);
+        utils.setStorage('mobile', cache.mobile);
         this.context.router.push('/home');
     }
 }

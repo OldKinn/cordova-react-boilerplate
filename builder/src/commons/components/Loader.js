@@ -2,8 +2,8 @@ import React, {Component} from 'react'
 
 class Loader extends Component {
     render() {
-        const {isLoading} = this.props;
-        if (isLoading) {
+        const {active} = this.props;
+        if (active) {
             return (
                 <div className="loading-wrapper">
                     <div className="spinner">
