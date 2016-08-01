@@ -2,6 +2,7 @@ import React, {Component, PropTypes} from 'react'
 import {bindActionCreators} from 'redux'
 import {connect} from 'react-redux'
 import QueueAnim from 'rc-queue-anim'
+import Alert from 'react-s-alert'
 import Cover from 'commons/components/Cover'
 import Loader from 'commons/components/Loader'
 import * as Actions from '../actions'
@@ -54,6 +55,13 @@ class App extends Component {
                 {createContent()}
                 <Cover active={cache.isBlock}/>
                 <Loader active={cache.isLoading}/>
+                <Alert
+                    stack={{limit: 1}}
+                    position="bottom"
+                    effect="stackslide"
+                    timeout={1500}
+                    offset={50}
+                />
             </div>
         )
     }

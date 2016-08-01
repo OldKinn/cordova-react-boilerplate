@@ -12,7 +12,17 @@
 <script src="./dist/bundle.js"></script>
 <script type="text/javascript">
     var bus = new EventEmitter();
-    bus.emit('deviceReady');
+    bus.addListener('login', function (data, callback) {
+        setTimeout(function () {
+            callback(null, {
+                success: true,
+                message: '登录成功',
+                content: {
+                    userName: '张三'
+                }
+            });
+        }, 1000);
+    });
 </script>
 </body>
 </html>

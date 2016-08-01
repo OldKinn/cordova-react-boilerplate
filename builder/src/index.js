@@ -1,6 +1,9 @@
+import 'react-s-alert/dist/s-alert-default.css'
+import 'react-s-alert/dist/s-alert-css-effects/stackslide.css'
 import './css/app.css'
 import './css/helper.css'
 import './css/form.css'
+
 import React from 'react'
 import {render} from 'react-dom'
 import {Router, hashHistory} from 'react-router'

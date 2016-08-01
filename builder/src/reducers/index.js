@@ -14,7 +14,9 @@ function cache(state = {
     // 用户姓名
     userName: 'Old King',
     // 手机号码
-    mobile: utils.getStorage('mobile', '16888888888')
+    mobile: utils.getStorage('mobile', '158 8888 8888'),
+    // 登录密码
+    password: ''
 }, action) {
     switch (action.type) {
         case Const.ACTION_SET_CACHE:

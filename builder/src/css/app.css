@@ -3,6 +3,7 @@ html, body {
     user-select: none;
 }
 
+/*导航工具栏*/
 .navbar-fixed-bottom, .navbar-fixed-top {
     z-index: 50;
     min-height: 30px;
@@ -42,6 +43,7 @@ html, body {
     font-size: 12px;
 }
 
+/*路由容器*/
 .router-main {
     position: relative;
     width: 100%;
@@ -54,6 +56,7 @@ html, body {
     width: 100%;
 }
 
+/*卡片样式效果*/
 .card {
     position: relative;
     background: #fff;
@@ -84,6 +87,7 @@ html, body {
     z-index: 100;
 }
 
+/*页面遮罩层*/
 .page-block {
     position: fixed;
     top: 0;
@@ -95,6 +99,7 @@ html, body {
     z-index: 100;
 }
 
+/*页面加载动画样式*/
 .loading-wrapper {
     position: fixed;
     top: 50%;
@@ -147,4 +152,24 @@ html, body {
         transform: scale(1.0);
         -webkit-transform: scale(1.0);
     }
+}
+
+/*消息提示样式*/
+.s-alert-box {
+    text-align: center;
+}
+
+.s-alert-error, .s-alert-info, .s-alert-success {
+    background-color: inherit;
+}
+
+.s-alert-close {
+    display: none;
+}
+
+.s-alert-box-inner {
+    display: inline-block;
+    background-color: #000;
+    padding: 5px;
+    border-radius: 5px;
 }

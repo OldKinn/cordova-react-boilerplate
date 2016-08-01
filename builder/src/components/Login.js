@@ -1,4 +1,5 @@
 import React, {Component, PropTypes} from 'react'
+import Alert from 'react-s-alert'
 import utils from 'commons/utils'
 
 class Login extends Component {
@@ -46,10 +47,22 @@ class Login extends Component {
     handleSubmit(event) {
         event.preventDefault();
         const {actions, cache} = this.props;
-        actions.setCache('isLogin', true);
-        utils.setStorage('isLogin', true);
         utils.setStorage('mobile', cache.mobile);
-        this.context.router.push('/home');
+        actions.setCache('isBlock', true);
+        actions.setCache('isLoading', true);
+
+        bus.emit('login', {mobile: cache.mobile, password: cache.password}, (error, data) => {
+            actions.setCache('isBlock', false);
+            actions.setCache('isLoading', false);
+            if (error) {
+                Alert.error(error.message);
+                return false;
+            }
+            Alert.success(data.message);
+            actions.setCache('isLogin', true);
+            utils.setStorage('isLogin', true);
+            this.context.router.push('/home');
+        });
     }
 }
 
