@@ -1,4 +1,5 @@
 import React, {Component, PropTypes} from 'react'
+import Alert from 'react-s-alert'
 import Ripples from 'commons/components/Ripples'
 import Card from 'commons/components/Card'
 import utils from 'commons/utils'
@@ -10,13 +11,20 @@ class Profile extends Component {
             <div className="padding">
                 <Card className="padding">
                     <Ripples>
-                        <p className="margin padding">姓名:{cache.userName}</p>
+                        <p className="margin-none padding">
+                            <label className="margin-right">姓名</label>
+                            {cache.userName}
+                        </p>
                     </Ripples>
                     <Ripples>
-                        <p className="margin padding">手机:{cache.mobile}</p>
+                        <p className="margin-none padding">
+                            <label className="margin-right">手机</label>
+                            {cache.mobile}
+                        </p>
                     </Ripples>
-                    <Ripples style={{display: 'inline-block'}} color="#eee">
-                        <button className="btn btn-lg btn-success" onClick={this.logout.bind(this)}>退 出</button>
+                    <Ripples color="#eee">
+                        <button className="btn btn-success btn-lg btn-block" onClick={this.logout.bind(this)}>退 出
+                        </button>
                     </Ripples>
                 </Card>
             </div>
@@ -27,6 +35,7 @@ class Profile extends Component {
         const {actions} = this.props;
         actions.setCache('isLogin', false);
         utils.setStorage('isLogin', false);
+        Alert.success('退出成功！');
         this.context.router.push('/');
     }
 }
