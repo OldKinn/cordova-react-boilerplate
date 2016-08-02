@@ -16,23 +16,20 @@ class App extends Component {
             actions: actions,
             cache: cache
         };
-        const animateConfig = [
-            {opacity: [1, 0], translateX: [0, '100%']},
-            {opacity: [0, 1], translateX: [0, '-100%']}
-        ];
         const style = {
             minHeight: window.innerHeight
         };
+        const animConfig = [
+            {opacity: [1, 0], translateX: [0, '100%']},
+            {opacity: [0, 1], translateX: [0, '-100%']}
+        ];
+        // easeOutBounce, easeInBounce, easeInOutElastic, easeInOutQuint
+        const ease = 'easeInOutQuint';
         const createContent = () => {
             if (navbar && main) {
                 return (
                     <div>
-                        <QueueAnim
-                            style={style}
-                            className="router-main"
-                            animConfig={animateConfig}
-                            duration={400}
-                            ease='easeOutQuart'>
+                        <QueueAnim style={style} className="router-main" type={['right', 'left']} ease={ease}>
                             {React.cloneElement(main, props)}
                         </QueueAnim>
                         {navbar}
@@ -40,11 +37,7 @@ class App extends Component {
                 )
             } else if (children) {
                 return (
-                    <QueueAnim
-                        className="router-main"
-                        animConfig={animateConfig}
-                        duration={400}
-                        ease='easeOutQuart'>
+                    <QueueAnim className="router-main" animConfig={animConfig} ease={ease}>
                         {React.cloneElement(children, props)}
                     </QueueAnim>
                 )
