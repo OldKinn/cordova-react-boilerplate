@@ -23,6 +23,9 @@
             });
         }, 1000);
     });
+    bus.addListener('take picture', function(options, callback) {
+        callback(null, 'aaa');
+    });
 </script>
 </body>
 </html>

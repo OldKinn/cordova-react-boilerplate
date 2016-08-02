@@ -69,9 +69,10 @@ require(['EventEmitter'], function (EventEmitter) {
     });
     // 监听拍照事件
     bus.addListener('take picture', function (options, callback) {
-        camera.getPicture(function (data) {
+        navigator.camera.getPicture(function (data) {
             callback(null, data);
         }, function (message) {
+            if (message == 'Camera cancelled.') message = '取消拍照';
             callback(new Error(message));
         }, options);
     });

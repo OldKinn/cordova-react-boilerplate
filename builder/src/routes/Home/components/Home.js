@@ -1,4 +1,5 @@
 import React from 'react'
+import Alert from 'react-s-alert'
 import Card from 'commons/components/Card'
 
 class Home extends React.Component {
@@ -7,6 +8,11 @@ class Home extends React.Component {
         return (
             <div className="padding">
                 <Card className="padding">
+                    <button
+                        className="btn btn-block btn-lg btn-primary"
+                        onClick={this.handleClick.bind(this)}
+                    >拍照
+                    </button>
                     <h3>一抒乡情</h3>
                     <p>故乡的夏夜还是记忆里的那般，</p>
                     <p>宁静、舒爽、惬意。</p>
@@ -27,6 +33,16 @@ class Home extends React.Component {
                 </Card>
             </div>
         )
+    }
+
+    handleClick() {
+        bus.emit('take picture', {}, (error, data) => {
+            if (error) {
+                Alert.error(error.message);
+                return false;
+            }
+            Alert.success(data);
+        })
     }
 
 }
