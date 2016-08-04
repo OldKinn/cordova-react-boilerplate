@@ -74,7 +74,7 @@ class Ripples extends Component {
         let divStyle = merge({}, this.props.style, wrapStyle);
         let waveStyle = merge({}, rippleStyle, this.state.rippleStyle);
         return (
-            <div style={divStyle} onMouseDown={this.handleClick}>
+            <div style={divStyle} className={this.props.className} onMouseDown={this.handleClick}>
                 {this.props.children}
                 <span style={waveStyle}/>
             </div>

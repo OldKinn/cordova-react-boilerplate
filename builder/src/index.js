@@ -30,7 +30,8 @@ const rootRoute = {
                 require('./routes/Home'),
                 require('./routes/Explore'),
                 require('./routes/Profile'),
-                require('./routes/Relation')
+                require('./routes/Relation'),
+                require('./routes/Register')
             ]
         }
     ]

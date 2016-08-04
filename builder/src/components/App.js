@@ -37,7 +37,7 @@ class App extends Component {
                 )
             } else if (children) {
                 return (
-                    <QueueAnim className="router-main" animConfig={animConfig} ease={ease}>
+                    <QueueAnim style={style} className="router-main" animConfig={animConfig} ease={ease}>
                         {React.cloneElement(children, props)}
                     </QueueAnim>
                 )

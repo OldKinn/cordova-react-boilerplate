@@ -5,17 +5,12 @@ import get from 'lodash/get'
 import Ripples from 'commons/components/Ripples'
 import utils from 'commons/utils'
 
-class Login extends Component {
 
-    constructor(props) {
-        super(props);
-        this.handleSubmit = this.handleSubmit.bind(this);
-    }
-
+class Register extends Component {
     render() {
         const {cache} = this.props;
         return (
-            <div>
+            <div className="padding">
                 <form className="login-form padding" onSubmit={this.handleSubmit}>
                     <div className="center-block text-center padding">
                         <img src="public/resources/icon.png"/>
@@ -39,10 +34,19 @@ class Login extends Component {
                             onChange={this.handleChange.bind(this, 'password')}
                         />
                     </div>
-                    <button type="submit" className="btn btn-primary btn-lg btn-block">登 录</button>
+                    <div className="form-group">
+                        <label>确认密码</label>
+                        <input
+                            type="password"
+                            placeholder="请确认登录密码"
+                            className="form-control input-bottom-line"
+                            onChange={this.handleChange.bind(this, 'password')}
+                        />
+                    </div>
+                    <button type="submit" className="btn btn-primary btn-lg btn-block">注 册</button>
                     <div className="clearfix padding-top">
                         <Ripples style={{display: 'inline-block'}} className="pull-left">
-                            <Link to="/register" className="btn btn-link">现在注册</Link>
+                            <Link to="/" className="btn btn-link">立即登录</Link>
                         </Ripples>
                         <Ripples style={{display: 'inline-block'}} className="pull-right">
                             <Link to="/forgot" className="btn btn-link">忘记密码？</Link>
@@ -88,8 +92,9 @@ class Login extends Component {
     }
 }
 
-Login.contextTypes = {
+
+Register.contextTypes = {
     router: PropTypes.object.isRequired
 }
 
-module.exports = Login
+module.exports = Register
