@@ -43,6 +43,11 @@ class Register extends Component {
                             onChange={this.handleChange.bind(this, 'password')}
                         />
                     </div>
+                    <div className="checkbox">
+                        <label>
+                            <input type="checkbox"/> 同意并注册
+                        </label>
+                    </div>
                     <button type="submit" className="btn btn-primary btn-lg btn-block">注 册</button>
                     <div className="clearfix padding-top">
                         <Ripples style={{display: 'inline-block'}} className="pull-left">
